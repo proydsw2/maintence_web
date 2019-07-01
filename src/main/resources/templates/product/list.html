@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Products List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#Buscador").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#Input tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+    <style>
+        nav {
+            width: 500px;
+            padding: 0;
+            margin: 20px auto;
+        }
+
+        .demo1 {
+            list-style: none;
+            margin: 0;
+        }
+
+        .demo1 li {
+            float: left;
+            padding: 0;
+            text-align: center;
+        }
+
+        .demo1 li a {
+            padding: 10px 15px;
+            display: block;
+            -webkit-transition: all .3s ease-in-out;
+            -moz-transition: all .3s ease-in-out;
+            -ms-transition: all .3s ease-in-out;
+            -o-transition: all .3s ease-in-out;
+            transition: all .3s ease-in-out;
+        }
+
+        .demo1 li a:hover, .demo1 li.activo a {
+            -webkit-box-shadow: 0px -4px 0px #FA01C7 inset;
+            box-shadow: 0px -4px 0px #FA01C7 inset;
+            color: #FA01C7;
+        }
+    </style>
+</head>
+
+
+<body>
+
+<header class="container">
+    <nav>
+        <ul class="demo1 clearfix">
+            <li><a class="btn btn-info" href="/product" role="button" style="margin-left: 5px; margin-right: 5px;">Product</a>
+            </li>
+            <li><a class="btn btn-info" href="/category" role="button" style="margin-left: 5px; margin-right: 5px;">Category</a>
+            </li>
+            <li><a class="btn btn-info" href="/console" role="button" style="margin-left: 5px; margin-right: 5px;">Console</a>
+            </li>
+            <li><a class="btn btn-info" href="/user" role="button" style="margin-left: 5px; margin-right: 5px;">User</a>
+            </li>
+            <li><a class="btn btn-info" href="/role" role="button" style="margin-left: 5px; margin-right: 5px;">Role</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<div class="card">
+    <div class="card-header">
+        Products List
+    </div>
+
+    <div class="card-body">
+
+        <div style="text-align: right;">
+            <a class="btn btn-dark" href="/product/create" role="button">+ Create Product</a>
+        </div>
+        <hr/>
+        <hr/>
+
+        <form>
+
+            <input id="Buscador" type="search" placeholder="Search product ..." class="form-control">
+            <hr/>
+
+            <table class="table table-striped" style="margin-bottom: 100px;">
+                <thead class="thead-dark">
+                <tr>
+                    <th style="width: 50px;" scope="col">ID</th>
+                    <th style="width: 267px;" scope="col">DESCRIPTION</th>
+                    <th style="width: 138px;" scope="col">PRICE</th>
+                    <th style="width: 137px;" scope="col">STOCK</th>
+                    <th style="width: 187px;" scope="col">STATUS</th>
+                    <th style="width: 135px;" scope="col">EDIT</th>
+                    <th style="width: 135px;" scope="col">DELETE</th>
+                </tr>
+                </thead>
+
+
+                <tbody id="Input">
+                <tr th:each="product : ${products}">
+                    <td style="width: 50px;" th:text="${product.num_product_id}"/>
+                    <td style="width: 267px;" th:text="${product.str_description}"/>
+                    <td style="width: 138px;" th:text="${product.num_price}"/>
+                    <td style="width: 137px;" th:text="${product.num_stock}"/>
+                    <td style="width: 187px;" th:text="${product.chr_status}"/>
+
+                    <td style="width: 135px;">
+                        <a th:href="@{/product/edit/{idProduct}(idProduct=${product.num_product_id})}">
+                                <span class="glyphicon glyphicon-star" aria-hidden="true">Edit</span>
+                        </a>
+                    </td>
+
+                    <td style="width: 135px;">
+                        <a th:href="@{/product/delete/{idProduct}(idProduct=${product.num_product_id})}">
+                            <span class="glyphicon glyphicon-remove">Delete</span>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+
+        </form>
+
+    </div>
+</div>
+
+
+</body>
+
+<footer>
+    <div style="text-align: center; margin-top: 100px;">Copyright - Cibertec 2019 ®</div>
+</footer>
+
+</html>

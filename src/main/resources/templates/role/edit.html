@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Edit Role</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+<body>
+
+<center>
+    <div class="card" style="width: 750px; margin-top: 50px;">
+        <div class="card-header">
+            Edit Role
+        </div>
+
+        <div class="card-body">
+            <form th:action="@{/role/update}" method="POST">
+                <table class="table">
+                    <tr>
+                        <td>ID</td>
+                        <td>
+                            <input class="form-control" type="text" id="textID" th:field="${role.num_role_id}"
+                                   th:value="${role.num_role_id}" readonly="true"/>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>DESCRIPTION:</td>
+                        <td>
+                            <input class="form-control" type="text" id="textDesc" th:field="${role.str_role_name}"
+                                   th:value="${role.str_role_name}"/>
+                        </td>
+                    </tr>
+
+
+                </table>
+                <input class="btn btn-primary" type="submit" value="Save">
+
+                <a class="btn btn-danger" href="/role" role="button">Cancel</a>
+
+
+            </form>
+
+        </div>
+    </div>
+</center>
+
+</body>
+
+
+<footer>
+    <div style="text-align: center; margin-top: 100px;">Copyright - Cibertec 2019 ®</div>
+</footer>
+
+</html>

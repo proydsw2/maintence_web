@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Register Role</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+
+
+<center>
+    <div class="card" style="text-align: center; width: 750px; margin-top: 50px;">
+        <div class="card-header">
+            Register Role
+        </div>
+
+        <div class="card-body">
+            <form th:action="@{/role/save}" method="POST">
+
+                <div class="form-group" style="text-align: left">
+                    <label for="txtName">Name</label>
+                    <input type="text" class="form-control" id="txtName" th:field="${role.str_role_name}"/>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a class="btn btn-danger" href="/role" role="button">Cancel</a>
+
+            </form>
+        </div>
+    </div>
+</center>
+
+
+<body>
+
+</body>
+
+<footer>
+    <div style="text-align: center; margin-top: 100px;">Copyright - Cibertec 2019 ®</div>
+</footer>
+
+</html>

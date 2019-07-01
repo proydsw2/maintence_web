@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Edit User</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+
+<body>
+<center>
+    <div class="card" style="width: 750px; margin-top: 50px;">
+        <div class="card-header">
+            Edit User
+        </div>
+
+        <div class="card-body">
+            <form th:action="@{/user/update}" method="POST">
+                <table class="table">
+                    <tr>
+                        <td>ID</td>
+                        <td>
+                            <input class="form-control" type="text" id="textID" th:field="${user.num_user_id}"
+                                   th:value="${user.num_user_id}" readonly="true"/>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>USERNAME:</td>
+                        <td>
+                            <input class="form-control" type="text" id="textDesc" th:field="${user.str_username}"
+                                   th:value="${user.str_username}"/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>PASSWORD:</td>
+                        <td>
+                            <input class="form-control" type="text" step="any" id="textPrice"
+                                   th:field="${user.str_password}"
+                                   th:value="${user.str_password}"/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>CUSTOMER:</td>
+                        <td>
+                            <input class="form-control" type="number" id="textStock" th:field="${user.num_customer_id}"
+                                   th:value="${user.num_customer_id}"/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>STATUS:</td>
+                        <td>
+                            <input class="form-control" type="text" id="textStatus" th:field="${user.chr_status}"
+                                   th:value="${user.chr_status}"/>
+                        </td>
+                    </tr>
+
+                </table>
+
+                <input class="btn btn-primary" type="submit" value="Save">
+                <a class="btn btn-danger" href="/user" role="button">Cancel</a>
+
+            </form>
+
+        </div>
+    </div>
+</center>
+</body>
+
+<footer>
+    <div style="text-align: center; margin-top: 100px;">
+        Copyright - Cibertec 2019 ®
+    </div>
+</footer>
+</html>

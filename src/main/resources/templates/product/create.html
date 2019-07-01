@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Register Product</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body>
+<center>
+<div class="card" style="text-align: center; width: 750px; margin-top: 50px;">
+    <div class="card-header">
+        Register Product
+    </div>
+
+    <div class="card-body">
+        <form th:action="@{/product/save}" method="POST">
+
+            <div class="form-group" style="text-align: left">
+                <label for="txtDescription">DESCRIPTION</label>
+                <input type="text" class="form-control" id="txtDescription" th:field="${product.str_description}"/>
+            </div>
+
+            <div class="form-group" style="text-align: left">
+                <label for="txtPrice">PRICE</label>
+                <input type="number" step="any" class="form-control" id="txtPrice" th:field="${product.num_price}"/>
+            </div>
+
+            <div class="form-group" style="text-align: left">
+                <label for="txtStock">STOCK</label>
+                <input type="number" class="form-control" id="txtStock" th:field="${product.num_stock}"/>
+            </div>
+
+            <div class="form-group" style="text-align: left">
+                <label for="txtStatus">STATUS</label>
+                <input type="text" class="form-control" id="txtStatus" th:field="${product.chr_status}"/>
+            </div>
+
+            <div class="form-group" style="text-align: left">
+                <label for="txtConsole">CONSOLE</label>
+                <input type="text" class="form-control" id="txtConsole" th:field="${product.num_console_id}"/>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a class="btn btn-danger" href="/product" role="button">Cancel</a>
+
+        </form>
+    </div>
+</div>
+</center>
+</body>
+
+<footer>
+    <div style="text-align: center; margin-top: 100px;">Copyright - Cibertec 2019 ®</div>
+</footer>
+
+</html>

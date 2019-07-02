@@ -2,6 +2,7 @@
 <html lang="es"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="utf-8">
     <title>GAME ONLINE SAC</title>
@@ -9,27 +10,31 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous">
     <meta charset="utf-8">
+
+
     <style>
+
         body {
-            margin: 0;
+
             padding: 0;
             background: url(https://images.app.goo.gl/H1qHEdAY95GM16319) no-repeat center top;
             background-size: cover;
             font-family: sans-serif;
             height: 100vh;
+            margin-top: 75px;
         }
 
         .login-box {
             width: 320px;
-            height: 420px;
-            background: #000;
+            height: 500px;
+            background: #770505;
             color: #fff;
             top: 50%;
             left: 50%;
             position: absolute;
             transform: translate(-50%, -50%);
             box-sizing: border-box;
-            padding: 70px 30px;
+            padding: 90px 40px;
         }
 
         .login-box .avatar {
@@ -90,35 +95,45 @@
             text-decoration: none;
             font-size: 12px;
             line-height: 20px;
-            color: darkgrey;
+            color: #FEFDFD;
         }
 
         .login-box a:hover {
-            color: #fff;
+            color: #FEFDFD;
         }
+
     </style>
 </head>
-<body>
+<body style="background-image: url(https://fundacionaprenderamirar.files.wordpress.com/2017/11/guia-videojuegos-adiccion.jpg?w=1920&h=768&crop=1);
+background-position: center; background-repeat: no-repeat; background-size: 90%;">
 
 <div class="login-box">
-    <img src="s3://imgenesvarias/logo.jpg">
-    <h1>Login Here</h1>
-    <form>
-        <!-- USERNAME INPUT -->
-        <label id="username">Username</label>
-        <input type="text" placeholder="Enter Username">
-        <!-- PASSWORD INPUT -->
-        <label id="password">Password</label>
-        <input type="password" placeholder="Enter Password">
-        <div style="text-align: center">
-            <a class="btn btn-danger" href="/product" role="button"
-               style="margin-left: 5px; margin-right: 5px; margin-bottom: 5px">Log In</a><br/>
-        </div>
-        <a href="#">Lost your Password?</a><br>
-        <a href="#">Don't have An account?</a>
-    </form>
-</div>
 
+    <div>
+
+        <center>
+            <img src="https://st2.depositphotos.com/7109552/10151/v/950/depositphotos_101511472-stock-illustration-online-gaming-logo.jpg"
+                 style="height:150px; width:180px; margin-top: -68px; margin-bottom: 25px;">
+        </center>
+    </div>
+    <div>
+
+        <form style="margin-bottom: 20px">
+            <!-- USERNAME INPUT -->
+            <label id="username">User</label>
+            <input type="text" placeholder="Enter Username">
+            <!-- PASSWORD INPUT -->
+            <label id="password">Password</label>
+            <input type="password" placeholder="Enter Password">
+            <div style="text-align: center">
+                <a class="btn btn-danger" href="/product" role="button"
+                   style="margin-left: 5px; margin-right: 5px; margin-bottom: 10px">Log In</a><br/>
+            </div>
+            <a href="#">Lost your Password?</a><br>
+            <a href="#">Don't have An account?</a>
+        </form>
+    </div>
+</div>
 
 </body>
 </html>

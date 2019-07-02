@@ -18,6 +18,7 @@
             });
         });
     </script>
+
     <style>
         nav {
             width: 500px;
@@ -56,82 +57,77 @@
 
 
 <body>
-    <header class="container">
-        <nav>
-            <ul class="demo1 clearfix">
-                <li><a class="btn btn-info" href="/product" role="button" style="margin-left: 5px; margin-right: 5px;">Product</a>
-                </li>
-                <li><a class="btn btn-info" href="/category" role="button" style="margin-left: 5px; margin-right: 5px;">Category</a>
-                </li>
-                <li><a class="btn btn-info" href="/console" role="button" style="margin-left: 5px; margin-right: 5px;">Console</a>
-                </li>
-                <li><a class="btn btn-info" href="/user" role="button" style="margin-left: 5px; margin-right: 5px;">User</a>
-                </li>
-                <li><a class="btn btn-info" href="/role" role="button" style="margin-left: 5px; margin-right: 5px;">Role</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+<header class="container">
+    <nav>
+        <ul class="demo1 clearfix">
+            <li><a class="btn btn-info" href="/product" role="button" style="margin-left: 5px; margin-right: 5px;">Product</a>
+            </li>
+            <li><a class="btn btn-info" href="/category" role="button" style="margin-left: 5px; margin-right: 5px;">Category</a>
+            </li>
+            <li><a class="btn btn-info" href="/console" role="button" style="margin-left: 5px; margin-right: 5px;">Console</a>
+            </li>
+            <li><a class="btn btn-info" href="/user" role="button" style="margin-left: 5px; margin-right: 5px;">User</a>
+            </li>
+            <li><a class="btn btn-info" href="/role" role="button" style="margin-left: 5px; margin-right: 5px;">Role</a>
+            </li>
+        </ul>
+    </nav>
+</header>
 
 
-    <div class="card">
-        <div class="card-header">
-            Categories List
-        </div>
-
-        <div class="card-body">
-
-            <div style="text-align: right;">
-                <a class="btn btn-dark" href="/category/create" role="button">+ Create Category</a>
-            </div>
-            <hr/>
-            <hr/>
-
-            <form>
-                <input id="Buscador" type="search" placeholder="Search category ..." class="form-control">
-                <hr/>
-
-
-
-
-                <table class="table table-striped" style="margin-bottom: 100px;">
-                    <thead class="thead-dark">
-                    <tr>
-                        <th style="width: 50px;" scope="col">ID</th>
-                        <th style="width: 267px;" scope="col">NOMBRE</th>
-                        <th style="width: 135px;" scope="col">EDIT</th>
-                        <th style="width: 135px;" scope="col">DELETE</th>
-                    </tr>
-                    </thead>
-
-
-                    <tbody id="Input">
-                    <tr th:each="category : ${categories}">
-                        <td style="width: 50px;" th:text="${category.num_category_id}"/>
-                        <td style="width: 267px;" th:text="${category.str_description}"/>
-
-                        <td style="width: 135px;">
-                            <a th:href="@{/category/edit/{idCategory}(idCategory=${category.num_category_id})}">
-                                    <span class="glyphicon glyphicon-star" aria-hidden="true">Edit</span>
-                            </a>
-                        </td>
-
-                        <td style="width: 135px;">
-                            <a th:href="@{/category/delete/{idCategory}(idCategory=${category.num_category_id})}">
-                                <span class="glyphicon glyphicon-remove">Delete</span>
-                            </a>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-
-
-
-
-
-            </form>
-        </div>
+<div class="card">
+    <div class="card-header">
+        Categories List
     </div>
+
+    <div class="card-body">
+
+        <div style="text-align: right;">
+            <a class="btn btn-dark" href="/category/create" role="button">+ Create Category</a>
+        </div>
+        <hr/>
+        <hr/>
+
+        <form>
+            <input id="Buscador" type="search" placeholder="Search category ..." class="form-control">
+            <hr/>
+
+
+            <table class="table table-striped" style="margin-bottom: 100px;">
+                <thead class="thead-dark">
+                <tr>
+                    <th style="width: 50px;" scope="col">ID</th>
+                    <th style="width: 267px;" scope="col">NOMBRE</th>
+                    <th style="width: 135px;" scope="col">EDIT</th>
+                    <th style="width: 135px;" scope="col">DELETE</th>
+                </tr>
+                </thead>
+
+
+                <tbody id="Input">
+                <tr th:each="category : ${categories}">
+                    <td style="width: 50px;" th:text="${category.num_category_id}"/>
+                    <td style="width: 267px;" th:text="${category.str_description}"/>
+
+                    <td style="width: 135px;">
+                        <a th:href="@{/category/edit/{idCategory}(idCategory=${category.num_category_id})}">
+                            <span class="glyphicon glyphicon-star" aria-hidden="true">Edit</span>
+                        </a>
+                    </td>
+
+                    <td style="width: 135px;">
+                        <a th:href="@{/category/delete/{idCategory}(idCategory=${category.num_category_id})}">
+                            <span class="glyphicon glyphicon-remove">Delete</span>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+
+        </form>
+    </div>
+</div>
 
 
 </body>
